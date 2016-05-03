@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AccountManager</string>
+    <string name="account_type">com.app.appifiedtech</string>
+</resources>
