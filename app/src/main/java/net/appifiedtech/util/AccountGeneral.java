@@ -4,7 +4,8 @@ package net.appifiedtech.util;
  * Created by Priyabrat on 04-05-2016.
  */
 public class AccountGeneral {
-
+    //http://www.jiahaoliuliu.com/2012/05/android-account-manager-part-i.html
+    //http://www.coderzheaven.com/2015/06/30/account-authenticator-demo-accountmanager-android/
     /**
      * Account name
      */

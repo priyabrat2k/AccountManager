@@ -29,13 +29,11 @@ public class Authenticator extends AbstractAccountAuthenticator {
 
     @Override
     public Bundle addAccount(AccountAuthenticatorResponse response, String accountType, String authTokenType, String[] requiredFeatures, Bundle options) throws NetworkErrorException {
-
         final Intent intent = new Intent(context, AuthenticatorActivity.class);
         intent.putExtra(AuthenticatorActivity.ACCOUNT_TYPE, accountType);
         intent.putExtra(AuthenticatorActivity.AUTH_TYPE, authTokenType);
         intent.putExtra(AuthenticatorActivity.IS_ADDING_NEW_ACCOUNT, true);
         intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-
         final Bundle bundle = new Bundle();
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
         return bundle;
@@ -43,9 +41,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
 
     @Override
     public Bundle getAuthToken(AccountAuthenticatorResponse response, Account account, String authTokenType, Bundle options) throws NetworkErrorException {
-
-        Log.d(TAG,  "> getAuthToken");
-
+        Log.d(TAG,  "getAuthToken()");
         // If the caller requested an authToken type we don't support, then
         // return an error
         if (!authTokenType.equals(AccountGeneral.AUTHTOKEN_TYPE_READ_ONLY) && !authTokenType.equals(AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS)) {
@@ -60,14 +56,14 @@ public class Authenticator extends AbstractAccountAuthenticator {
 
         String authToken = am.peekAuthToken(account, authTokenType);
 
-        Log.d("CoderzHeaven", TAG + "> peekAuthToken returned - " + authToken);
+        Log.d(TAG, "AuthToken returned - " + authToken);
 
         // Lets give another try to authenticate the user
         if (TextUtils.isEmpty(authToken)) {
             final String password = am.getPassword(account);
             if (password != null) {
                 try {
-                    Log.d("CoderzHeaven", TAG + "> re-authenticating with the existing password");
+                    Log.d(TAG," re-authenticating with the existing password");
                     //authToken = sServerAuthenticate.userSignIn(account.name, password, authTokenType);
                 } catch (Exception e) {
                     e.printStackTrace();
