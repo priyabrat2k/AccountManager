@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import net.appifiedtech.adapter.AccountsListAdapter;
 import net.appifiedtech.models.Item;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AccountManager accountManager;
     private Button btnAdd,btnShow;
     private ListView listView;
+    private AccountsListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAdd.setOnClickListener(this);
         btnShow = (Button) findViewById(R.id.button2);
         btnShow.setOnClickListener(this);
+        listView = (ListView) findViewById(R.id.listView1);
     }
 
     @Override
@@ -39,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(id == R.id.button2)
         {
-
+            adapter = new AccountsListAdapter(getApplicationContext(),R.layout.row_layout,getAllAccounts());
+            listView.setAdapter(adapter);
         }
     }
 
