@@ -6,6 +6,7 @@ package net.appifiedtech.util;
 public class AccountGeneral {
     //http://www.jiahaoliuliu.com/2012/05/android-account-manager-part-i.html
     //http://www.coderzheaven.com/2015/06/30/account-authenticator-demo-accountmanager-android/
+    //http://www.coderzheaven.com/2015/07/04/sync-adapter-android-simple-example/
     /**
      * Account name
      */
